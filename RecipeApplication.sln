@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "RecipeApplication.Client", "RecipeApplication.Client\RecipeApplication.Client.esproj", "{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB2C5ED-33CC-4989-BC3C-73EF949E3BB0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D64C003E-AF34-4E42-BAB1-CD7F5EEDB5FC}
+	EndGlobalSection
+EndGlobal
