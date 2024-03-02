@@ -1,0 +1,33 @@
+﻿.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+mat-sidenav {
+    background-color: var(--main-color-4);
+    width: 350px;
+    text-align: center;
+}
+
+mat-toolbar {
+    height: 80px;
+}
+
+
+/*skapa config istället*/
+#app-name {
+    font-weight: 800;
+    font-size: 40px;
+}
+
+#current-tab {
+    font-weight: 800;
+}
+
+mat-list-item {
+    font-weight: 300
+}

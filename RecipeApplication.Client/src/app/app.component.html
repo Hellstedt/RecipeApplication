@@ -1,1 +1,25 @@
-﻿
+﻿<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+        <div>
+            <h1 class="">DishDrop</h1>
+        </div>
+
+        <mat-nav-list>
+              <a mat-list-item routerLink=".">Nav-1</a>
+          </mat-nav-list>
+        <mat-nav-list>
+            <a mat-list-item routerLink=".">Nav-2</a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a mat-list-item routerLink=".">Nav-3</a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a mat-list-item routerLink=".">Nav-4</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <span id="current-tab">Dashboard</span>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>

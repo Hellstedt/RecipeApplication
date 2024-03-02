@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*Color theme*/
+:root {
+    --main-color-1: #CCD5AE;
+    --main-color-2: #E9EDC9;
+    --main-color-3: #FEFAE0;
+    --main-color-4: #FAEDCD;
+    --main-color-5: #D4A373;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Outfit, "Helvetica Neue", sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
