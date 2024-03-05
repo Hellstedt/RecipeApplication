@@ -8,6 +8,7 @@ $RecipeApplication-warn: mat.define-palette(mat.$red-palette);
 $RecipeApplication-typography: mat.define-typography-config(
   $font-family: 'Outfit',
 );
+@include mat.typography-hierarchy($RecipeApplication-typography);
 
 $RecipeApplication-theme: mat.define-light-theme((
   color: (
