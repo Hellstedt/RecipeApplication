@@ -8,15 +8,36 @@
 }
 
 mat-sidenav {
-    background-color: var(--main-color-4);
+    background-color: var(--main-color-1);
     width: 350px;
     text-align: center;
 }
 
 mat-toolbar {
     height: 80px;
+    background-color: var(--main-color-2);
 }
 
-mat-list-item {
-    font-weight: 300
+.mat-list-item {
+}
+
+.mat-headline-2 {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    color: var(--main-color-3);
+}
+
+/*Might be better to just change this in the theme config*/
+.mat-h1 {
+    margin: 0;
+    font-weight: 800;
+    color: var(--main-color-3);
+}
+
+.mat-h3 {
+    margin: 0;
+    font-weight: 800;
 }
