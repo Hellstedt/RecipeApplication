@@ -9,9 +9,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,9 @@ import { MatListModule } from '@angular/material/list';
     AppRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatIconModule,
   ],
   providers: [
     provideAnimationsAsync()
