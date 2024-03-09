@@ -1,19 +1,4 @@
-﻿.example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #eee;
-}
-
-mat-sidenav {
-    background-color: var(--main-color-1);
-    width: 350px;
-    text-align: center;
-}
-
-mat-toolbar {
+﻿mat-toolbar {
     height: 80px;
     background-color: var(--main-color-2);
 }
@@ -75,6 +60,7 @@ mat-toolbar .search-field-container input:not(:focus) + mat-icon {
     margin: 0;
 }
 
-mat-nav-list {
-
+.toolbar-links {
+    color: var(--main-color-3);
+    margin-right: 2rem;
 }
