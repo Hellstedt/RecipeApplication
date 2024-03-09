@@ -18,13 +18,8 @@ mat-toolbar {
     background-color: var(--main-color-2);
 }
 
-.mat-list-item {
-}
-
-.mat-headline-2 {
+.mat-headline-3 {
     margin: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-family: "Dancing Script", cursive;
     font-weight: 700;
     color: var(--main-color-3);
@@ -78,4 +73,8 @@ mat-toolbar .search-field-container input:not(:focus) + mat-icon {
 
 .mat-h4 {
     margin: 0;
+}
+
+mat-nav-list {
+
 }
