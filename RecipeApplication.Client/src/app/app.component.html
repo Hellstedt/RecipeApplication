@@ -1,24 +1,14 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+﻿
+<mat-toolbar>
+    <span class="mat-headline-3">
+        DishDrop
+    </span>
+    <span class="spacer"></span>
+    <span class="toolbar-links">Home</span>
+    <span class="toolbar-links">My Recipes</span>
+    <span class="toolbar-links">Other</span>
+    <div class="search-field-container">
+        <input class="mat-h4" type="search" placeholder="Search">
+        <mat-icon class="search-box-icon">search</mat-icon>
+    </div>
+</mat-toolbar>
