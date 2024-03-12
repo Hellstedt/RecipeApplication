@@ -7,9 +7,9 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "RecipeApplication.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication.WebAPI", "RecipeApplication.WebAPI\RecipeApplication.WebAPI.csproj", "{28ED6313-13CC-423A-B943-373557A321A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApplication.Data", "RecipeApplication.Data\RecipeApplication.Data.csproj", "{38F76CE8-8677-46BE-8497-CE7E17A8C191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication.Data", "RecipeApplication.Data\RecipeApplication.Data.csproj", "{38F76CE8-8677-46BE-8497-CE7E17A8C191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApplication.Service", "RecipeApplication.Service\RecipeApplication.Service.csproj", "{A7ED2645-C209-4CE9-A4AA-EDE2C6C53D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication.Service", "RecipeApplication.Service\RecipeApplication.Service.csproj", "{A7ED2645-C209-4CE9-A4AA-EDE2C6C53D9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
