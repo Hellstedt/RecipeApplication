@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using RecipeApplication.WebAPI.Data;
+using RecipeApplication.WebAPI.Interfaces;
 using RecipeApplication.WebAPI.Models;
+using RecipeApplication.WebAPI.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +51,8 @@ builder.Services.AddAuthentication(options =>
         )
     };
 });
+
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
