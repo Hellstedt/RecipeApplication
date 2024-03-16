@@ -1,8 +1,15 @@
-﻿<div>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
-</div>
-<div>
-    <span (click)="logout()">Logout</span>
-</div>
+﻿<mat-toolbar>
+    <span class="mat-headline-3">
+        DishDrop
+    </span>
+    <span class="spacer"></span>
+    <span class="toolbar-links">Home</span>
+    <span class="toolbar-links">My Recipes</span>
+    <span class="toolbar-links">Other</span>
+    <div class="search-field-container">
+        <input class="mat-h4" type="search" placeholder="Search">
+        <mat-icon class="search-box-icon">search</mat-icon>
+    </div>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
