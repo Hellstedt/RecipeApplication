@@ -7,5 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  ngOnInit(): void {}
 
+  logout(): void {
+    console.log('logout');
+  }
 }
