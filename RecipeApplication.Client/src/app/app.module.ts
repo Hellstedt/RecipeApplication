@@ -11,10 +11,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatFormFieldModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync()
