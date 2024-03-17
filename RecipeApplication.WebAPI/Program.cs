@@ -83,6 +83,17 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 
+builder.Services.AddCors(options =>
+{
+    //Angular
+    options.AddPolicy("angularApp", policicyBuilder =>
+    {
+        policicyBuilder.WithOrigins("http://localhost:4200");
+        policicyBuilder.AllowAnyHeader();
+        policicyBuilder.AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -99,5 +110,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("angularApp");
 
 app.Run();
