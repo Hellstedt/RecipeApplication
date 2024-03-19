@@ -63,4 +63,8 @@ mat-toolbar .search-field-container input:not(:focus) + mat-icon {
 .toolbar-links {
     color: var(--main-color-3);
     margin-right: 2rem;
+
+    &:hover {
+        cursor: pointer;
+    }
 }

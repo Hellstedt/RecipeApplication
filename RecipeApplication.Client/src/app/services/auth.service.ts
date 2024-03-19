@@ -1,12 +1,43 @@
 import { Injectable, signal } from '@angular/core';
 import { IUser } from '../interfaces/Iuser';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  currentUseSignal = signal<IUser | undefined | null>(undefined);
+  private baseUrl: string = 'https://localhost:7238/api/account/'
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    ) { }
+
+  register(userObj: any) {
+    return this.http.post<any>(`${this.baseUrl}register`, userObj)
+  }
+
+  logIn(loginObj: any) {
+    return this.http.post<any>(`${this.baseUrl}login`, loginObj)
+  }
+
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
+
+  storeToken(tokenValue: string) {
+    localStorage.setItem('token', tokenValue)
+  }
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token')
+  }
+
 }

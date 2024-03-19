@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import {MatCardModule} from '@angular/material/card';
+import { StartingPageComponent } from './components/starting-page/starting-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    StartingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()

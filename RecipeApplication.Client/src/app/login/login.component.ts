@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,27 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class LoginComponent { 
   fb = inject(FormBuilder);
 
-  form = this.fb.nonNullable.group({
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    ) {}
+
+  loginForm = this.fb.nonNullable.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
 
   onSubmit(): void {
-    console.log('login');
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+      this.authService.logIn(this.loginForm.value).subscribe({
+        next: (response) => {
+          this.loginForm.reset();
+          this.authService.storeToken(response.token);
+          console.log('Login successful!');
+          this.router.navigate(['home']);
+        }
+      })
+    }
   }
 }

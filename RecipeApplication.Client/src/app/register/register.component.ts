@@ -23,14 +23,5 @@ export class RegisterComponent {
     password: ['', Validators.required],
   });
 
-  onSubmit(): void {
-    this.http.post<any>('https://localhost:7238/api/account/register', 
-      this.form.getRawValue()
-    ).subscribe((response) => {
-      console.log('response', response);
-      localStorage.setItem('token', response.token);
-      this.authService.currentUseSignal.set(response.user);
-      this.router.navigateByUrl('');
-    });
-  }
+  onSubmit(): void {}
 }
