@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IUser } from '../../interfaces/Iuser';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -14,16 +12,49 @@ export class RegisterComponent {
 
   registerForm = this.fb.nonNullable.group({
     username: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(12)]],
   });
+
+  errorMessageUsername = '';
+  errorMessageEmail = '';
+  errorMessagePassword = '';
 
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private http: HttpClient,
     private router: Router
-    ) {}
+    ) {
+ 
+    }
+
+    updateErrorMessageUsername() {
+      if (this.registerForm.controls.username.hasError('required')) {
+        this.errorMessageUsername = 'Username required';
+      } else {
+        this.errorMessageUsername = '';
+      }
+    }
+
+    updateErrorMessageEmail() {
+      if (this.registerForm.controls.email.hasError('required')) {
+        this.errorMessageEmail = 'Email required';
+      } else if (this.registerForm.controls.email.hasError('email')) {
+        this.errorMessageEmail = 'Not a valid email';
+      } else {
+        this.errorMessageEmail = '';
+      }
+    }
+
+    updateErrorMessagePassword() {
+      if (this.registerForm.controls.password.hasError('required')) {
+        this.errorMessagePassword = 'Password required';
+      } else if (this.registerForm.controls.password.hasError('minlength')) {
+        this.errorMessagePassword = 'Password to short'
+        } else {
+        this.errorMessagePassword = '';
+      }
+    }
 
   onSubmit(): void {
     if(this.registerForm.valid) {
