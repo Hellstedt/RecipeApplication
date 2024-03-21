@@ -30,6 +30,9 @@ export class LoginComponent {
           this.authService.storeToken(response.token);
           console.log('Login successful!');
           this.router.navigate(['home']);
+        },
+        error: (err) => {
+          alert(err?.error.message)
         }
       })
     }

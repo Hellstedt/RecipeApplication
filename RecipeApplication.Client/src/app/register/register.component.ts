@@ -12,16 +12,33 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  fb = inject(FormBuilder);
-  http = inject(HttpClient);
-  authService = inject(AuthService);
-  router = inject(Router);
-
-  form = this.fb.nonNullable.group({
+  signUpForm = this.fb.nonNullable.group({
     username: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
 
-  onSubmit(): void {}
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+    ) {}
+
+  onSubmit(): void {
+    if(this.signUpForm.valid) {
+      this.authService.register(this.signUpForm.value)
+      .subscribe({
+        next: (response => {
+          this.signUpForm.reset();
+          this.authService.storeToken(response.token);
+          console.log('Register successful!');
+          this.router.navigate(['home']);
+        }),
+        error: (err) => {
+          alert(err?.error.message);
+        }
+      })
+    }
+  }
 }

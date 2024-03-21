@@ -15,12 +15,12 @@ export class AuthService {
     private router: Router,
     ) { }
 
-  register(userObj: any) {
-    return this.http.post<any>(`${this.baseUrl}register`, userObj)
+  register(registerDto: any) {
+    return this.http.post<any>(`${this.baseUrl}register`, registerDto)
   }
 
-  logIn(loginObj: any) {
-    return this.http.post<any>(`${this.baseUrl}login`, loginObj)
+  logIn(loginDto: any) {
+    return this.http.post<any>(`${this.baseUrl}login`, loginDto)
   }
 
   logOut() {
