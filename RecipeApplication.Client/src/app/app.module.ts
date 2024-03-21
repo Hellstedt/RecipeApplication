@@ -11,13 +11,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import { StartingPageComponent } from './components/starting-page/starting-page.component';
+import {MatInputModule} from '@angular/material/input'
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { StartingPageComponent } from './components/starting-page/starting-page.
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()
