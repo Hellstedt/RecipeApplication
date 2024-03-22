@@ -10,12 +10,14 @@
                         <mat-label>Username</mat-label>
                         <input type="text" formControlName="username" matInput placeholder="username">
                         <mat-icon matPrefix>person</mat-icon>
+                        <mat-error *ngIf="(loginForm.controls.username.invalid)">{{errorMessageUsername}}</mat-error>
                     </mat-form-field>
         
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <input type="password" formControlName="password" matInput placeholder="password">
                         <mat-icon matPrefix>password</mat-icon>
+                        <mat-error *ngIf="(loginForm.controls.username.invalid)">{{errorMessagePassword}}</mat-error>
                     </mat-form-field>
         
                     <div>

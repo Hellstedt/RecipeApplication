@@ -16,6 +16,9 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
+  errorMessageUsername = '';
+  errorMessagePassword = '';
+
   constructor(
     private authService: AuthService,
     private router: Router,

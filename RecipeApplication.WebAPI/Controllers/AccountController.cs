@@ -54,6 +54,18 @@ namespace RecipeApplication.WebAPI.Controllers
                 if(!ModelState.IsValid)
                     return BadRequest(ModelState);
 
+                var usernameExists = await _userManager.FindByNameAsync(registerDto.Username);
+                if (usernameExists != null)
+                {
+                    return BadRequest(new { Message = "Username already exists!" });
+                }
+
+                var emailExists = await _userManager.FindByEmailAsync(registerDto.Email);
+                if (emailExists != null)
+                {
+                    return BadRequest(new {Message = "Email already exists!"});
+                }
+
                 var appUser = new AppUser
                 {
                     UserName = registerDto.Username,

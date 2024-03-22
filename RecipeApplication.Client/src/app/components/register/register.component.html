@@ -8,21 +8,21 @@
                 <div class="form-input-container">
                     <mat-form-field appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input type="text" formControlName="username" matInput placeholder="username" (blur)="updateErrorMessageUsername()">
+                        <input type="text" formControlName="username" matInput (blur)="updateErrorMessageUsername()">
                         <mat-error *ngIf="(registerForm.controls.username.invalid)">{{errorMessageUsername}}</mat-error>
                         <mat-icon matPrefix>person</mat-icon>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input type="email" formControlName="email" matInput placeholder="email" (blur)="updateErrorMessageEmail()">
+                        <input type="email" formControlName="email" matInput (blur)="updateErrorMessageEmail()">
                         <mat-error *ngIf="(registerForm.controls.email.invalid)">{{errorMessageEmail}}</mat-error>
                         <mat-icon matPrefix>mail</mat-icon>
                     </mat-form-field>
         
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input type="password" formControlName="password" matInput placeholder="password" (blur)="updateErrorMessagePassword()">
+                        <input type="password" formControlName="password" matInput (blur)="updateErrorMessagePassword()">
                         <mat-error *ngIf="(registerForm.controls.password.invalid)">{{errorMessagePassword}}</mat-error>
                         <mat-icon matPrefix>password</mat-icon>
                     </mat-form-field>

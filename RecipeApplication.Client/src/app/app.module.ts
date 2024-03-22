@@ -20,6 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import { StartingPageComponent } from './components/starting-page/starting-page.component';
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
   ],
   providers: [
     provideAnimationsAsync()

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
     ) {
  
     }
@@ -50,7 +52,7 @@ export class RegisterComponent {
       if (this.registerForm.controls.password.hasError('required')) {
         this.errorMessagePassword = 'Password required';
       } else if (this.registerForm.controls.password.hasError('minlength')) {
-        this.errorMessagePassword = 'Password to short'
+        this.errorMessagePassword = 'Password must be 12 characters or longer'
         } else {
         this.errorMessagePassword = '';
       }
@@ -66,8 +68,22 @@ export class RegisterComponent {
           console.log('Register successful!');
           this.router.navigate(['home']);
         }),
-        error: (err) => {
-          alert(err?.error.message);
+        error: (error) => {
+          console.log(error);
+          if(error.error.message === 'Email already exists!') {
+            this.snackBar.open('Email already exists', '', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+          }
+          else if(error.error.message === 'Username already exists!') {
+            this.snackBar.open('User already exists', '', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+          }
         }
       })
     }
