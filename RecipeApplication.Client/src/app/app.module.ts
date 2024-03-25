@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/home/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import { StartingPageComponent } from './components/starting-page/starting-page.component';
@@ -27,7 +27,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
+    DashboardComponent,
     HeaderComponent,
     StartingPageComponent
   ],

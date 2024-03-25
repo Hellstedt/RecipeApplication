@@ -66,7 +66,7 @@ export class RegisterComponent {
           this.registerForm.reset();
           this.authService.storeToken(response.token);
           console.log('Register successful!');
-          this.router.navigate(['home']);
+          this.router.navigate(['dashboard']);
         }),
         error: (error) => {
           console.log(error);

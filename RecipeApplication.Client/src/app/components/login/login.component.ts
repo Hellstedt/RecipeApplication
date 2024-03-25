@@ -32,7 +32,7 @@ export class LoginComponent {
           this.loginForm.reset();
           this.authService.storeToken(response.token);
           console.log('Login successful!');
-          this.router.navigate(['home']);
+          this.router.navigate(['dashboard']);
         },
         error: (err) => {
           alert(err?.error.message)
