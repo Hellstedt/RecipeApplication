@@ -1,0 +1,70 @@
+mat-toolbar {
+    height: 80px;
+    background-color: var(--main-color-2);
+}
+
+.mat-headline-3 {
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    color: var(--main-color-3);
+}
+
+/*Might be better to just change this in the theme config*/
+.mat-h1 {
+    margin: 0;
+    font-weight: 800;
+    color: var(--main-color-3);
+}
+
+.mat-h3 {
+    margin: 0;
+    font-weight: 800;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar .search-field-container input:not(:focus) + mat-icon {
+    display: block;
+}
+
+/*change naming*/
+.search-field-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 16px;
+
+        input {
+            width: 300px;
+            max-width: 300;
+            padding-left: 10px;
+            height: 50%;
+            border: none;
+            border-radius: 100px;
+            
+            &:focus {
+                outline: none;
+            }
+        }
+        mat-icon {
+            position: absolute;
+            right: 30px;
+            display: none;
+        }
+}
+
+.mat-h4 {
+    margin: 0;
+}
+
+.toolbar-links {
+    color: var(--main-color-3);
+    margin-right: 2rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,34 @@
+.login-card {
+   margin: 0 auto;
+   align-items: center;
+}
+
+.card-container {
+   display: flex;
+   width: 100vw;
+   height: calc(100vh - 80px);
+   align-items: center;
+   background-color: var(--main-color-4);
+}
+
+.form-input-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+mat-card-title {
+   margin-bottom: 1em;
+ }
+
+ mat-form-field {
+   width: 300px;
+   margin-bottom: 0.4em;
+ }
+
+ button {
+   margin-top: 0.2em;
+   margin-bottom: 0.5em;
+   width: 300px;
+ }
