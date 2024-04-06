@@ -9,6 +9,11 @@ import { authGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '', 
+    redirectTo: '/login',
+    pathMatch:'full'
+  },
+  {
+    path: 'start', 
     component: StartingPageComponent,
     title: 'Starting Page'
   },
