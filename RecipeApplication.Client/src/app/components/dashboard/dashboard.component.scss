@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+}
+
+.sidenav-container {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidenav-icon {
+    margin-right: 0.5rem;
+  }

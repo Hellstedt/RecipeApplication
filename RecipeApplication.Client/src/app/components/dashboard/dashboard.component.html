@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-list-item>
+                <span class="list-item" routerLink="/">
+                    <mat-icon class="sidenav-icon">dashboard</mat-icon>
+                    <span>Dashboard</span>
+                </span>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <h2>Welcome!</h2>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <h1>WELCOME!</h1>
+
+<div>
+    <span (click)="logout()">Logout</span>
+</div>
+</mat-sidenav-content> -->
