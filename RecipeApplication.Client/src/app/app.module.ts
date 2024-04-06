@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/home/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import { StartingPageComponent } from './components/starting-page/starting-page.component';

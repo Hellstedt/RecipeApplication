@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './components/home/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { StartingPageComponent } from './components/starting-page/starting-page.component';
 import { authGuard } from './guards/auth.guard';
@@ -9,6 +9,11 @@ import { authGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '', 
+    redirectTo: '/login',
+    pathMatch:'full'
+  },
+  {
+    path: 'start', 
     component: StartingPageComponent,
     title: 'Starting Page'
   },
