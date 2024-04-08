@@ -21,6 +21,8 @@ import { StartingPageComponent } from './components/starting-page/starting-page.
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CookbookComponent } from './components/cookbook/cookbook.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RegisterComponent,
     DashboardComponent,
     HeaderComponent,
-    StartingPageComponent
+    StartingPageComponent,
+    CookbookComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
