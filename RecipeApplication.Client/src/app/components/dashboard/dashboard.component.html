@@ -24,6 +24,12 @@
                 </span>
             </a>
             <a mat-list-item>
+                <span class="entry">
+                    <mat-icon class="sidenav-icon">book</mat-icon>
+                    <span *ngIf="!isCollapsed">Cookbook</span>
+                </span>
+            </a>
+            <a mat-list-item>
                 <span class="entry" (click)="logout()">
                     <mat-icon class="sidenav-icon">logout</mat-icon>
                     <span *ngIf="!isCollapsed">Sign out</span>
