@@ -30,36 +30,6 @@ mat-toolbar {
   flex: 1 1 auto;
 }
 
-mat-toolbar .search-field-container input:not(:focus) + mat-icon {
-  display: block;
-}
-
-/*change naming*/
-.search-field-container {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  margin-left: 16px;
-
-      input {
-          width: 300px;
-          max-width: 300;
-          padding-left: 10px;
-          height: 50%;
-          border: none;
-          border-radius: 100px;
-          
-          &:focus {
-              outline: none;
-          }
-      }
-      mat-icon {
-          position: absolute;
-          right: 30px;
-          display: none;
-      }
-}
-
 .mat-h4 {
   margin: 0;
 }
