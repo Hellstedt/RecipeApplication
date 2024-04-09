@@ -9,7 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -51,7 +51,13 @@ import { HomeComponent } from './components/home/home.component';
     MatSnackBarModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        subscriptSizing: 'dynamic'
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })
