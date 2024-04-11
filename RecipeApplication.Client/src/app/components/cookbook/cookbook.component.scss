@@ -60,9 +60,22 @@
 .example-card {
     max-width: 300px;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     img {
         width: 100%;
         height: 200px;
         object-fit: cover;
     }
-  }
+}
+
+mat-card-subtitle {
+}
+
+.timer-icon {
+    display: inline;
+    font-size: inherit;
+    // border: 1px solid blue
+}
