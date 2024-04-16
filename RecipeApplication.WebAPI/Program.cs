@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Models;
 using RecipeApplication.WebAPI.Data;
 using RecipeApplication.WebAPI.Interfaces;
 using RecipeApplication.WebAPI.Models;
+using RecipeApplication.WebAPI.Repository;
 using RecipeApplication.WebAPI.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -93,6 +94,8 @@ builder.Services.AddCors(options =>
         policicyBuilder.AllowAnyMethod();
     });
 });
+
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 
 var app = builder.Build();
 
