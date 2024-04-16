@@ -1,25 +1,42 @@
-﻿using RecipeApplication.WebAPI.Dtos.Recipe;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
+using RecipeApplication.WebAPI.Dtos.Recipe;
 using RecipeApplication.WebAPI.Models;
 
 namespace RecipeApplication.WebAPI.Mappers
 {
     public static class RecipeMappers
     {
-        public static Recipe ToRecipeFromCreateDto(this CreateRecipeRequestDto RecipeDto)
+        public static RecipeDto ToRecipeDtoFromRecipeModel(this Recipe recipeModel)
+        {
+            return new RecipeDto
+            {
+                RecipeName = recipeModel.RecipeName,
+                Servings = recipeModel.Servings,
+                DifficultyLevel = recipeModel.DifficultyLevel,
+                MealType = recipeModel.MealType,
+                CuisineType = recipeModel.CuisineType,
+                DietaryInformation = recipeModel.DietaryInformation,
+                Source = recipeModel.Source,
+                Raiting = recipeModel.Raiting,
+                Favorite = recipeModel.Favorite,
+            };
+        }
+        public static Recipe ToRecipeFromCreateDto(this CreateRecipeRequestDto recipeDto)
         {
             return new Recipe
             {
-                RecipeName = RecipeDto.RecipeName,
+                RecipeName = recipeDto.RecipeName,
                 DateCreated = DateTime.Now,
                 CookingTime = null,
-                Servings = RecipeDto.Servings,
-                DifficultyLevel = RecipeDto.DifficultyLevel,
-                MealType = RecipeDto.MealType,
-                CuisineType = RecipeDto.CuisineType,
-                DietaryInformation = RecipeDto.DietaryInformation,
-                Source = RecipeDto.Source,
-                Raiting = RecipeDto.Raiting,
-                Favorite = RecipeDto.Favorite,
+                Servings = recipeDto.Servings,
+                DifficultyLevel = recipeDto.DifficultyLevel,
+                MealType = recipeDto.MealType,
+                CuisineType = recipeDto.CuisineType,
+                DietaryInformation = recipeDto.DietaryInformation,
+                Source = recipeDto.Source,
+                Raiting = recipeDto.Raiting,
+                Favorite = recipeDto.Favorite,
             };
         }
     }

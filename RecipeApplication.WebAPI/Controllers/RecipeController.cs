@@ -45,5 +45,45 @@ namespace RecipeApplication.WebAPI.Controllers
 
             return CreatedAtAction(nameof(GetRecipeById), new { id = RecipeModel.Id }, RecipeModel);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateRecipe([FromRoute] int id, [FromBody] UpdateRecipeRequestDto UpdateDto)
+        {
+            var RecipeModel = _context.Recipes.FirstOrDefault(x => x.Id == id);
+
+            if (RecipeModel == null)
+            {
+                return NotFound();
+            }
+
+            RecipeModel.RecipeName = UpdateDto.RecipeName;
+            RecipeModel.Servings = UpdateDto.Servings;
+            RecipeModel.DifficultyLevel = UpdateDto.DifficultyLevel;
+            RecipeModel.MealType = UpdateDto.MealType;
+            RecipeModel.CuisineType = UpdateDto.CuisineType;
+            RecipeModel.DietaryInformation = UpdateDto.DietaryInformation;
+            RecipeModel.Source = UpdateDto.Source;
+            RecipeModel.Raiting = UpdateDto.Raiting;
+            RecipeModel.Favorite = UpdateDto.Favorite;
+
+            _context.SaveChanges();
+            return Ok(RecipeModel);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteRecipe([FromRoute] int id)
+        {
+            var RecipeModel = _context.Recipes.FirstOrDefault(x => x.Id == id);
+
+            if (RecipeModel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Recipes.Remove(RecipeModel);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }
