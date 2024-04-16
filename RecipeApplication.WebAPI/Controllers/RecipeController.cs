@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RecipeApplication.WebAPI.Data;
 using RecipeApplication.WebAPI.Dtos.Recipe;
 using RecipeApplication.WebAPI.Mappers;
@@ -16,17 +17,19 @@ namespace RecipeApplication.WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllRecipes() 
+        public async Task<IActionResult> GetAllRecipes() 
         { 
-            var recipes = _context.Recipes.ToList();
+            var recipes = await _context.Recipes.ToListAsync();
+
+            var recipeDto = recipes.Select(s => s.ToRecipeDtoFromRecipeModel());
 
             return Ok(recipes);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetRecipeById(int id) 
+        public async Task<IActionResult> GetRecipeById(int id) 
         {
-            var recipe = _context.Recipes.Find(id);
+            var recipe = await _context.Recipes.FindAsync(id);
 
             if (recipe == null)
             {
@@ -37,19 +40,20 @@ namespace RecipeApplication.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateRecipe([FromBody] CreateRecipeRequestDto RecipeDto)
+        public async Task<IActionResult> CreateRecipe([FromBody] CreateRecipeRequestDto RecipeDto)
         {
             var RecipeModel = RecipeDto.ToRecipeFromCreateDto();
-            _context.Recipes.Add(RecipeModel);
-            _context.SaveChanges();
+             await _context.Recipes.AddAsync(RecipeModel);
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetRecipeById), new { id = RecipeModel.Id }, RecipeModel);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateRecipe([FromRoute] int id, [FromBody] UpdateRecipeRequestDto UpdateDto)
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateRecipe([FromRoute] int id, [FromBody] UpdateRecipeRequestDto UpdateDto)
         {
-            var RecipeModel = _context.Recipes.FirstOrDefault(x => x.Id == id);
+            var RecipeModel = await _context.Recipes.FirstOrDefaultAsync(x => x.Id == id);
 
             if (RecipeModel == null)
             {
@@ -66,15 +70,15 @@ namespace RecipeApplication.WebAPI.Controllers
             RecipeModel.Raiting = UpdateDto.Raiting;
             RecipeModel.Favorite = UpdateDto.Favorite;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok(RecipeModel);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteRecipe([FromRoute] int id)
+        public async Task<IActionResult> DeleteRecipe([FromRoute] int id)
         {
-            var RecipeModel = _context.Recipes.FirstOrDefault(x => x.Id == id);
+            var RecipeModel = await _context.Recipes.FirstOrDefaultAsync(x => x.Id == id);
 
             if (RecipeModel == null)
             {
@@ -82,7 +86,7 @@ namespace RecipeApplication.WebAPI.Controllers
             }
 
             _context.Recipes.Remove(RecipeModel);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return NoContent();
         }
     }
