@@ -11,11 +11,9 @@ namespace RecipeApplication.WebAPI.Controllers
     [ApiController]
     public class RecipeController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
         private readonly IRecipeRepository _recipeRepo;
-        public RecipeController(ApplicationDbContext context, IRecipeRepository recipeRepo)
+        public RecipeController(IRecipeRepository recipeRepo)
         {
-            _context = context;
             _recipeRepo = recipeRepo;
         }
 
