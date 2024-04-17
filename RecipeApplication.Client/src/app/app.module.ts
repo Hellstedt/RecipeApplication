@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CookbookComponent } from './components/cookbook/cookbook.component';
 import { HomeComponent } from './components/home/home.component';
+import { tokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { HomeComponent } from './components/home/home.component';
       useValue: {
         subscriptSizing: 'dynamic'
       }
-    }
+    },
+    provideHttpClient(withInterceptors([tokenInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

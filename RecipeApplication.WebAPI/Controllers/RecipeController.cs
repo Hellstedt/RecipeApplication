@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeApplication.WebAPI.Data;
 using RecipeApplication.WebAPI.Dtos.Recipe;
@@ -17,6 +18,7 @@ namespace RecipeApplication.WebAPI.Controllers
             _recipeRepo = recipeRepo;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllRecipes() 
         { 
@@ -27,6 +29,7 @@ namespace RecipeApplication.WebAPI.Controllers
             return Ok(recipes);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRecipeById(int id) 
         {
@@ -40,6 +43,7 @@ namespace RecipeApplication.WebAPI.Controllers
             return Ok(recipe);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateRecipe([FromBody] CreateRecipeRequestDto RecipeDto)
         {
@@ -48,6 +52,7 @@ namespace RecipeApplication.WebAPI.Controllers
             return CreatedAtAction(nameof(GetRecipeById), new { id = RecipeModel.Id }, RecipeModel);
         }
 
+        [Authorize]
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> UpdateRecipe([FromRoute] int id, [FromBody] UpdateRecipeRequestDto UpdateDto)
@@ -62,6 +67,7 @@ namespace RecipeApplication.WebAPI.Controllers
             return Ok(RecipeModel.ToRecipeDtoFromRecipeModel());
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> DeleteRecipe([FromRoute] int id)
