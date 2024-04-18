@@ -1,0 +1,68 @@
+<form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>Add Recipe</h1>
+    <div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cooking Time</mat-label>
+            <input matInput type="time" formControlName="cookingTime">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Servings</mat-label>
+            <input matInput type="number" formControlName="servings">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Difficulty</mat-label>
+            <mat-select formControlName="difficulty">
+                @for (difficulty of difficulties; track difficulty) {
+                    <mat-option [value]="difficulty.value">{{difficulty.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Meal Type</mat-label>
+            <mat-select formControlName="mealType">
+                @for (mealType of mealTypes; track mealType) {
+                    <mat-option [value]="mealType.value">{{mealType.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cuisine Type</mat-label>
+            <mat-select formControlName="cuisineType">
+                @for (cuisine of cuisineTypes; track cuisine) {
+                    <mat-option [value]="cuisine.value">{{cuisine.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Diet</mat-label>
+            <mat-select formControlName="dietaryInformation">
+                @for (diet of dietTypes; track diet) {
+                    <mat-option [value]="diet.value">{{diet.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Source</mat-label>
+            <input matInput type="text" formControlName="source">
+        </mat-form-field>
+
+        <div>
+            <mat-checkbox formControlName="favorite">Favorite</mat-checkbox>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-flat-button color="primary">Save</button>
+        <button mat-flat-button (click)="closeDialog()" color="warn">Cancel</button>
+    </div>
+</form>
