@@ -9,14 +9,15 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const authService = inject(AuthService);
   const myToken = authService.getToken();
-
-  if (myToken) {
-    req.clone({
-      setHeaders: {Authorization: `Bearer ${myToken}`}
-    })
-  }
   
-  return next(req).pipe(
+  
+  const cloneRequest = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${myToken}`
+    }
+  });
+  
+  return next(cloneRequest).pipe(
     catchError((err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {

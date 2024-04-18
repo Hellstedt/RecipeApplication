@@ -52,6 +52,7 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
     MatSnackBarModule,
   ],
   providers: [
+    provideHttpClient(withInterceptors([tokenInterceptor])),
     provideAnimationsAsync(),
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
@@ -59,7 +60,6 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
         subscriptSizing: 'dynamic'
       }
     },
-    provideHttpClient(withInterceptors([tokenInterceptor]))
   ],
   bootstrap: [AppComponent]
 })
