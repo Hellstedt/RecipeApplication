@@ -35,7 +35,7 @@ namespace RecipeApplication.WebAPI.Mappers
                 CuisineType = recipeDto.CuisineType,
                 DietaryInformation = recipeDto.DietaryInformation,
                 Source = recipeDto.Source,
-                Raiting = recipeDto.Raiting,
+                Raiting = null,
                 Favorite = recipeDto.Favorite,
             };
         }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { RecipeService } from '../../../services/recipe.service';
+import { ICreateRecipe } from '../../../interfaces/ICreateRecipe';
 
 @Component({
   selector: 'app-add-recipe-dialog',
@@ -10,7 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class AddRecipeDialogComponent {
 
   addRecipeForm = this.fb.group({
-    name: this.fb.control('', Validators.required),
+    recipeName: this.fb.control('', Validators.required),
     cookingTime: this.fb.control(''),
     servings: this.fb.control('', Validators.required),
     difficultyLevel: this.fb.control(''),
@@ -22,55 +24,60 @@ export class AddRecipeDialogComponent {
     favorite: this.fb.control(false),
   });
 
-  difficulties: any[] = [
-    {value: '1', viewValue: 'Easy'},
-    {value: '2', viewValue: 'Medium'},
-    {value: '3', viewValue: 'Hard'},
-  ];
+difficulties: any[] = [
+  { value: 'Easy', viewValue: 'Easy' },
+  { value: 'Medium', viewValue: 'Medium' },
+  { value: 'Hard', viewValue: 'Hard' },
+];
 
-  mealTypes: any[] = [
-    {value: '1', viewValue: 'Breakfast'},
-    {value: '2', viewValue: 'Lunch'},
-    {value: '3', viewValue: 'Dinner'},
-    {value: '4', viewValue: 'Snack'},
-    {value: '5', viewValue: 'Dessert'},
-    {value: '6', viewValue: 'Appetizer'},
-    {value: '7', viewValue: 'Beverage'},
-  ];
+mealTypes: any[] = [
+  { value: 'Breakfast', viewValue: 'Breakfast' },
+  { value: 'Lunch', viewValue: 'Lunch' },
+  { value: 'Dinner', viewValue: 'Dinner' },
+  { value: 'Snack', viewValue: 'Snack' },
+  { value: 'Dessert', viewValue: 'Dessert' },
+  { value: 'Appetizer', viewValue: 'Appetizer' },
+  { value: 'Beverage', viewValue: 'Beverage' },
+];
 
-  cuisineTypes: any[] = [
-    { value: '1', viewValue: 'Italian' },
-    { value: '2', viewValue: 'Mexican' },
-    { value: '3', viewValue: 'Indian' },
-    { value: '4', viewValue: 'Chinese' },
-    { value: '5', viewValue: 'Japanese' },
-    { value: '6', viewValue: 'Thai' },
-    { value: '7', viewValue: 'Mediterranean' },
-    { value: '8', viewValue: 'American' },
-    { value: '9', viewValue: 'French' },
-    { value: '10', viewValue: 'Spanish' },
+cuisineTypes: any[] = [
+  { value: 'Italian', viewValue: 'Italian' },
+  { value: 'Mexican', viewValue: 'Mexican' },
+  { value: 'Indian', viewValue: 'Indian' },
+  { value: 'Chinese', viewValue: 'Chinese' },
+  { value: 'Japanese', viewValue: 'Japanese' },
+  { value: 'Thai', viewValue: 'Thai' },
+  { value: 'Mediterranean', viewValue: 'Mediterranean' },
+  { value: 'American', viewValue: 'American' },
+  { value: 'French', viewValue: 'French' },
+  { value: 'Spanish', viewValue: 'Spanish' },
 ];
 
 dietTypes: any[] = [
-  { value: '1', viewValue: 'Vegetarian' },
-  { value: '2', viewValue: 'Vegan' },
-  { value: '3', viewValue: 'Keto' },
-  { value: '4', viewValue: 'Paleo' },
-  { value: '5', viewValue: 'Gluten-free' },
-  { value: '6', viewValue: 'Low-carb' },
-  { value: '7', viewValue: 'Mediterranean' },
-  { value: '8', viewValue: 'Pescatarian' },
-  { value: '9', viewValue: 'Whole30' },
-  { value: '10', viewValue: 'Flexitarian' },
+  { value: 'Vegetarian', viewValue: 'Vegetarian' },
+  { value: 'Vegan', viewValue: 'Vegan' },
+  { value: 'Keto', viewValue: 'Keto' },
+  { value: 'Paleo', viewValue: 'Paleo' },
+  { value: 'Gluten-free', viewValue: 'Gluten-free' },
+  { value: 'Low-carb', viewValue: 'Low-carb' },
+  { value: 'Mediterranean', viewValue: 'Mediterranean' },
+  { value: 'Pescatarian', viewValue: 'Pescatarian' },
+  { value: 'Whole30', viewValue: 'Whole30' },
+  { value: 'Flexitarian', viewValue: 'Flexitarian' },
 ];
+
 
   constructor(
     private dialogRef: MatDialogRef<AddRecipeDialogComponent>,
     private fb: FormBuilder,
+    private recipeSerice: RecipeService,
   ){}
 
   onSubmit() {
-    
+    this.recipeSerice.CreateRecipe(this.addRecipeForm.value).subscribe(res => {
+      this.closeDialog();
+    });
+    console.log(this.addRecipeForm.value);
   }
 
   closeDialog(): void {

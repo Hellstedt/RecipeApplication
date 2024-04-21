@@ -3,7 +3,7 @@
     <div mat-dialog-content>
         <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
-            <input matInput type="text" formControlName="name">
+            <input matInput type="text" formControlName="recipeName">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -18,7 +18,7 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Difficulty</mat-label>
-            <mat-select formControlName="difficulty">
+            <mat-select formControlName="difficultyLevel">
                 @for (difficulty of difficulties; track difficulty) {
                     <mat-option [value]="difficulty.value">{{difficulty.viewValue}}</mat-option>
                   }

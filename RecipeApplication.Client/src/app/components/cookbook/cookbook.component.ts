@@ -3,6 +3,7 @@ import { IRecipe } from '../../interfaces/IRecipe';
 import { RecipeService } from '../../services/recipe.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRecipeDialogComponent } from '../dialogs/add-recipe-dialog/add-recipe-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cookbook',
@@ -17,6 +18,7 @@ export class CookbookComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private dialog: MatDialog,
+    private router: Router,
   ){}
 
   ngOnInit() {
@@ -27,8 +29,12 @@ export class CookbookComponent implements OnInit {
   }
 
   addRecipeDialog() {
-    this.dialog.open(AddRecipeDialogComponent, {
+    var dialogRef = this.dialog.open(AddRecipeDialogComponent, {
       width: '40%',
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      // this.router.navigate(['./cookbook'])
+      console.log("created");
     })
   }
 }
