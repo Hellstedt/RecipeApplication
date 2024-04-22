@@ -6,21 +6,21 @@
         DishDrop
     </span>
     <span class="spacer"></span>
-    <span class="toolbar-links" routerLink="/login">Login</span>
-    <span class="toolbar-links" routerLink="/register">Register</span>
-    <div class="search-field-container">
-        <input class="mat-h4" type="search" placeholder="Search">
-        <mat-icon class="search-box-icon">search</mat-icon>
-    </div>
 </mat-toolbar>
 
 <mat-sidenav-container autosize>
     <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
         <mat-nav-list>
-            <a mat-list-item>
+            <a mat-list-item routerLink="./home">
                 <span class="entry">
                     <mat-icon class="sidenav-icon">dashboard</mat-icon>
                     <span *ngIf="!isCollapsed">Dashboard</span>
+                </span>
+            </a>
+            <a mat-list-item routerLink="./cookbook">
+                <span class="entry">
+                    <mat-icon class="sidenav-icon">book</mat-icon>
+                    <span *ngIf="!isCollapsed">Cookbook</span>
                 </span>
             </a>
             <a mat-list-item>
@@ -32,7 +32,6 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <h2>Welcome!</h2>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

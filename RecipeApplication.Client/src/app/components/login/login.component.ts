@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent { 
+export class LoginComponent implements OnInit { 
   fb = inject(FormBuilder);
 
   loginForm = this.fb.nonNullable.group({
@@ -23,6 +23,12 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router,
     ) {}
+
+    ngOnInit(): void {
+      if (this.authService.isLoggedIn()) {
+        this.router.navigate(['dashboard']);
+      }
+    }
 
   onSubmit(): void {
     if (this.loginForm.valid) {

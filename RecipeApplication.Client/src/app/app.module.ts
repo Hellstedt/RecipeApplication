@@ -9,7 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,6 +21,8 @@ import { StartingPageComponent } from './components/starting-page/starting-page.
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CookbookComponent } from './components/cookbook/cookbook.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RegisterComponent,
     DashboardComponent,
     HeaderComponent,
-    StartingPageComponent
+    StartingPageComponent,
+    CookbookComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        subscriptSizing: 'dynamic'
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })
