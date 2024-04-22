@@ -6,6 +6,7 @@ export interface ICreateRecipe {
     mealType: string;
     cuisineType: string;
     dietaryInformation: string;
+    imageUrl: string;
     source: string;
     raiting: number;
     favorite: boolean;

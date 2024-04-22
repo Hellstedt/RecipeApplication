@@ -20,6 +20,7 @@ export class AddRecipeDialogComponent {
     cuisineType: this.fb.control(''),
     dietaryInformation: this.fb.control(''),
     source: this.fb.control(''),
+    imageUrl: this.fb.control(''),
     raiting: this.fb.control(''),
     favorite: this.fb.control(false),
   });
