@@ -24,6 +24,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CookbookComponent } from './components/cookbook/cookbook.component';
 import { HomeComponent } from './components/home/home.component';
 import { tokenInterceptor } from './interceptors/token.interceptor';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddRecipeDialogComponent } from './components/dialogs/add-recipe-dialog/add-recipe-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
     StartingPageComponent,
     CookbookComponent,
     HomeComponent,
+    AddRecipeDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,9 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([tokenInterceptor])),
