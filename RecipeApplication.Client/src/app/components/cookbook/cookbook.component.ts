@@ -33,8 +33,15 @@ export class CookbookComponent implements OnInit {
       width: '40%',
     });
     dialogRef.afterClosed().subscribe(res => {
-      // this.router.navigate(['./cookbook'])
-      console.log("created");
+      this.updateRecipeList();
+      console.log("The recipe was created successfully.");
     })
+  }
+
+  updateRecipeList() {
+    this.recipeService.getAllRecipes()
+    .subscribe((res) => {
+      this.recipeCardDataList = res;
+    });
   }
 }
