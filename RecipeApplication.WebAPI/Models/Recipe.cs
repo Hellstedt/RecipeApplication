@@ -23,6 +23,7 @@ namespace RecipeApplication.WebAPI.Models
         [Column(TypeName = "decimal(2,1)")]
         public decimal? Raiting { get; set; }
         public bool Favorite { get; set; }
+        public string? ImageUrl { get; set; }
         public ICollection<UserRecipe> UserRecipes { get; set; }
     }
 }
