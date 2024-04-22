@@ -28,6 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddRecipeDialogComponent } from './components/dialogs/add-recipe-dialog/add-recipe-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
+import { RecipeDetailsDialogComponent } from './components/dialogs/recipe-details-dialog/recipe-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatSelectModule} from '@angular/material/select';
     CookbookComponent,
     HomeComponent,
     AddRecipeDialogComponent,
+    RecipeDetailsDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { RecipeService } from '../../services/recipe.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRecipeDialogComponent } from '../dialogs/add-recipe-dialog/add-recipe-dialog.component';
 import { Router } from '@angular/router';
+import { RecipeDetailsDialogComponent } from '../dialogs/recipe-details-dialog/recipe-details-dialog.component';
 
 @Component({
   selector: 'app-cookbook',
@@ -36,6 +37,12 @@ export class CookbookComponent implements OnInit {
       this.updateRecipeList();
       console.log("The recipe was created successfully.");
     })
+  }
+
+  recipeDetailsDialog() {
+    var dialogRef = this.dialog.open(RecipeDetailsDialogComponent, {
+      width: '90%',
+    });
   }
 
   updateRecipeList() {
