@@ -11,5 +11,5 @@ export interface IRecipe {
     source: string | null;
     raiting: number | null;
     favorite: boolean;
-    image: string | null;
+    imageUrl: string | null;
 }

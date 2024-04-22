@@ -18,6 +18,7 @@ namespace RecipeApplication.WebAPI.Mappers
                 CuisineType = recipeModel.CuisineType,
                 DietaryInformation = recipeModel.DietaryInformation,
                 Source = recipeModel.Source,
+                ImageUrl = recipeModel.ImageUrl,
                 Raiting = recipeModel.Raiting,
                 Favorite = recipeModel.Favorite,
             };
@@ -34,6 +35,7 @@ namespace RecipeApplication.WebAPI.Mappers
                 MealType = recipeDto.MealType,
                 CuisineType = recipeDto.CuisineType,
                 DietaryInformation = recipeDto.DietaryInformation,
+                ImageUrl = recipeDto.ImageUrl,
                 Source = recipeDto.Source,
                 Raiting = null,
                 Favorite = recipeDto.Favorite,
