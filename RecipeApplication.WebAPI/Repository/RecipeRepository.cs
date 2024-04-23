@@ -37,8 +37,13 @@ namespace RecipeApplication.WebAPI.Repository
 
         public async Task<List<Recipe>> GetAllAsync()
         {
+
             return await _context.Recipes
                 .Include(r => r.Instructions)
+                .Include(r => r.RecipeIngredients)
+                    .ThenInclude(ri => ri.Ingredient)
+                .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Unit)
                 .ToListAsync();
         }
 

@@ -12,5 +12,6 @@ namespace RecipeApplication.WebAPI.Models
         public AppUser? User { get; set; }
         [Required]
         public string IngredientName { get; set; }
+        public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
     }
 }
