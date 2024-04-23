@@ -1,1 +1,17 @@
-<p>recipe-details-dialog works!</p>
+<!-- recipe-details-dialog.component.html -->
+<div class="dialog-grid-container">
+    <div class="image-box">
+      <img [src]="data.imageUrl ? data.imageUrl : 'https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'" [alt]="data.imageUrl ? 'photo of ' + data.recipeName : 'No image available'">
+    </div>
+    <div class="name-box">
+      <span class="mat-headline-2">{{ data.recipeName }}</span>
+    </div>
+    <div class="ingredients-box">
+      <span class="mat-headline-5">Ingredients</span>
+      <!-- Display recipe ingredients here -->
+    </div>
+    <div class="instructions-box">
+      <span class="mat-headline-5">Instructions</span>
+      <!-- Display recipe instructions here -->
+    </div>
+  </div>

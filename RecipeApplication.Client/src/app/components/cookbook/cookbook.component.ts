@@ -39,9 +39,11 @@ export class CookbookComponent implements OnInit {
     })
   }
 
-  recipeDetailsDialog() {
+  recipeDetailsDialog(recipe: IRecipe): void {
     var dialogRef = this.dialog.open(RecipeDetailsDialogComponent, {
-      width: '90%',
+      width: '1500px',
+      height: '90%',
+      data: recipe
     });
   }
 
