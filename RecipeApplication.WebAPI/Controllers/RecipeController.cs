@@ -26,7 +26,7 @@ namespace RecipeApplication.WebAPI.Controllers
 
             var recipeDto = recipes.Select(s => s.ToRecipeDtoFromRecipeModel());
 
-            return Ok(recipes);
+            return Ok(recipeDto);
         }
 
         [Authorize]

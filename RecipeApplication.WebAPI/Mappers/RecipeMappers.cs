@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
+using RecipeApplication.WebAPI.Dtos.IngredientDtos;
+using RecipeApplication.WebAPI.Dtos.Instruction;
 using RecipeApplication.WebAPI.Dtos.Recipe;
+using RecipeApplication.WebAPI.Dtos.RecipeIngredientDtos;
+using RecipeApplication.WebAPI.Dtos.UnitDtos;
 using RecipeApplication.WebAPI.Models;
 
 namespace RecipeApplication.WebAPI.Mappers
@@ -17,6 +21,34 @@ namespace RecipeApplication.WebAPI.Mappers
                 MealType = recipeModel.MealType,
                 CuisineType = recipeModel.CuisineType,
                 DietaryInformation = recipeModel.DietaryInformation,
+                Instructions = recipeModel.Instructions
+                    .Select(i => new InstructionDto
+                        {
+                            Id = i.Id,
+                            RecipeId = i.RecipeId,
+                            StepNumber = i.StepNumber,
+                            InstructionText = i.InstructionText,
+                        }).ToList(),
+                RecipeIngredients = recipeModel.RecipeIngredients
+                    .Select(ri => new RecipeIngredientDto
+                    {
+                        Id = ri.Id,
+                        IngredientId = ri.IngredientId,
+                        Ingredient = new IngredientDto
+                            {
+                                Id = ri.Ingredient.Id,
+                                CreatedByUserId = ri.Ingredient.CreatedByUserId,
+                                IngredientName = ri.Ingredient.IngredientName,
+                            },
+                        Unit = new UnitDto
+                        {
+                            Id = ri.Unit.Id,
+                            UnitName = ri.Unit.UnitName,
+                            UnitAbbreviation = ri.Unit.UnitAbbreviation,
+                        },
+                        UnitId = ri.UnitId,
+                        Quantity = ri.Quantity,
+                    }).ToList(),
                 Source = recipeModel.Source,
                 ImageUrl = recipeModel.ImageUrl,
                 Raiting = recipeModel.Raiting,

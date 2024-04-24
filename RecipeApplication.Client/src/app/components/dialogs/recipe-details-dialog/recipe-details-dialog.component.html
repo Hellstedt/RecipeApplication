@@ -6,12 +6,21 @@
     <div class="name-box">
       <span class="mat-headline-2">{{ data.recipeName }}</span>
     </div>
+
     <div class="ingredients-box">
-      <span class="mat-headline-5">Ingredients</span>
-      <!-- Display recipe ingredients here -->
+      <span class="ingredient-box-headline mat-headline-5">Ingredients</span>
+      <div class="ingredient-row-container" *ngFor="let recipeIngredient of data.recipeIngredients">
+        <p class="ingredient-name mat-h4">{{recipeIngredient.ingredient.ingredientName}}</p>
+        <span class="ingredient-measurement">{{recipeIngredient.quantity}} {{recipeIngredient.unit.unitAbbreviation}}</span>
+      </div>
     </div>
+
     <div class="instructions-box">
-      <span class="mat-headline-5">Instructions</span>
-      <!-- Display recipe instructions here -->
+      <span class="instructions-box-headline mat-headline-5">Instructions</span>
+      <div class="instruction-step-container" *ngFor="let instruction of data.instructions">
+        <span class="instruction-stepNumber mat-headline-6">{{instruction.stepNumber}}.</span>
+        <p class="instruction-stepText">{{instruction.instructionText}}</p>
+      </div>
     </div>
+
   </div>

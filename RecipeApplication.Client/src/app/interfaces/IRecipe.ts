@@ -1,3 +1,6 @@
+import { IInstruction } from "./IInstruction";
+import { IRecipeIngredients } from "./IRecipeIngredients";
+
 export interface IRecipe {
     id: number;
     recipeName: string;
@@ -8,6 +11,8 @@ export interface IRecipe {
     mealType: string | null;
     cuisineType: string | null;
     dietaryInformation: string | null;
+    instructions: IInstruction[];
+    recipeIngredients: IRecipeIngredients[];
     source: string | null;
     raiting: number | null;
     favorite: boolean;
