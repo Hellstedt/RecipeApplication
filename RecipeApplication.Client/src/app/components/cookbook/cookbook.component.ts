@@ -41,7 +41,7 @@ export class CookbookComponent implements OnInit {
 
   recipeDetailsDialog(recipe: IRecipe): void {
     var dialogRef = this.dialog.open(RecipeDetailsDialogComponent, {
-      width: '1500px',
+      width: '1400px',
       height: '90%',
       data: recipe
     });

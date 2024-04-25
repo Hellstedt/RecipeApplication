@@ -4,7 +4,7 @@
   grid-template-columns: minmax(400px, 1fr) 2fr;
   grid-template-rows: auto auto;
   gap: 20px;
-  column-gap: 30px;
+  column-gap: 40px;
   padding: 20px;
 }
   
@@ -36,17 +36,18 @@
   
   /* Additional styling for boxes */
 .image-box, .name-box, .ingredients-box, .instructions-box {
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   padding: 10px;
 }
 
 .mat-headline-2 {
   font-weight: 800;
+  // border: 1px solid red;
+  padding: 0px;
 }
 
 .mat-headline-6 {
-  margin: 0;
-  padding: 0;
+  font-weight: 500;
 }
 
 .mat-headline-5 {
@@ -58,6 +59,34 @@ img {
   height: 500px;
   object-fit: cover;
 }
+
+// NAME BOX
+
+.features {
+  width: 100%;
+  margin-top: 40px;
+  // border: 1px solid blue;
+}
+
+.feature-item {
+  margin-bottom: 35px;
+}
+
+.feature-data-desc {
+  margin-right: 3px;
+}
+
+.feature-data {
+  padding: 5px;
+  border: 3px solid orange;
+  border-radius: 15px;
+}
+
+mat-icon {
+  margin-right: 3px;
+}
+
+
 
 // INGREDIENTS BOX
 
@@ -101,6 +130,7 @@ img {
 
 .instruction-stepText {
   // border: 1px solid purple;
+  max-width: 75ch;
 }
 
 .instruction-step-container {

@@ -18,6 +18,7 @@ namespace RecipeApplication.WebAPI.Mappers
                 RecipeName = recipeModel.RecipeName,
                 Servings = recipeModel.Servings,
                 DifficultyLevel = recipeModel.DifficultyLevel,
+                CookingTime = recipeModel.CookingTime,
                 MealType = recipeModel.MealType,
                 CuisineType = recipeModel.CuisineType,
                 DietaryInformation = recipeModel.DietaryInformation,

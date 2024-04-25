@@ -9,6 +9,7 @@ namespace RecipeApplication.WebAPI.Dtos.Recipe
         public string RecipeName { get; set; }
         public int Servings { get; set; }
         public string? DifficultyLevel { get; set; }
+        public TimeSpan? CookingTime { get; set; }
         public string? MealType { get; set; }
         public string? CuisineType { get; set; }
         public string? DietaryInformation { get; set; }

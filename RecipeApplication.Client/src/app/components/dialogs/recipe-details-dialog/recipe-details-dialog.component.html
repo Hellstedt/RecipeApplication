@@ -5,6 +5,28 @@
     </div>
     <div class="name-box">
       <span class="mat-headline-2">{{ data.recipeName }}</span>
+      <div class="features">
+        <div class="feature-item" *ngIf="data.difficultyLevel">
+          <span class="feature-data-desc mat-headline-6"><mat-icon>signal_cellular_alt</mat-icon>Difficulty: </span>
+          <span class="feature-data">{{data.difficultyLevel}}</span>
+        </div>
+        <div class="feature-item" *ngIf="data.mealType">
+          <span class="feature-data-desc mat-headline-6"><mat-icon>restaurant</mat-icon> Meal: </span>
+          <span class="feature-data">{{data.mealType}}</span>
+        </div>
+        <div class="feature-item" *ngIf="data.cuisineType">
+          <span class="feature-data-desc mat-headline-6"><mat-icon>flag</mat-icon> Cuisine: </span>
+          <span class="feature-data">{{data.cuisineType}}</span>
+        </div>
+        <div class="feature-item" *ngIf="data.dietaryInformation">
+          <span class="feature-data-desc mat-headline-6"><mat-icon>egg</mat-icon> Diet: </span>
+          <span class="feature-data">{{data.dietaryInformation}}</span>
+        </div>
+        <div class="feature-item" *ngIf="data.cookingTime">
+          <span class="feature-data-desc mat-headline-6"><mat-icon>timer</mat-icon> Time: </span>
+          <span class="feature-data">{{data.cookingTime}}</span>
+        </div>
+      </div>
     </div>
 
     <div class="ingredients-box">
