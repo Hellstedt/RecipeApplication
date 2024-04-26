@@ -253,7 +253,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasIndex("CreatedByUserId");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredients", (string)null);
                 });
 
             modelBuilder.Entity("RecipeApplication.WebAPI.Models.Instruction", b =>
@@ -278,7 +278,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Instructions");
+                    b.ToTable("Instructions", (string)null);
                 });
 
             modelBuilder.Entity("RecipeApplication.WebAPI.Models.Recipe", b =>
@@ -328,7 +328,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Recipes");
+                    b.ToTable("Recipes", (string)null);
                 });
 
             modelBuilder.Entity("RecipeApplication.WebAPI.Models.RecipeIngredient", b =>
@@ -359,7 +359,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasIndex("UnitId");
 
-                    b.ToTable("RecipeIngredients");
+                    b.ToTable("RecipeIngredients", (string)null);
                 });
 
             modelBuilder.Entity("RecipeApplication.WebAPI.Models.Unit", b =>
@@ -379,7 +379,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Units");
+                    b.ToTable("Units", (string)null);
                 });
 
             modelBuilder.Entity("RecipeApplication.WebAPI.Models.UserRecipe", b =>
@@ -406,7 +406,7 @@ namespace RecipeApplication.WebAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserRecipes");
+                    b.ToTable("UserRecipes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

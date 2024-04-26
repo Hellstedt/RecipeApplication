@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import { HttpErrorResponse, HttpInterceptor, HttpInterceptorFn } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
@@ -18,14 +18,14 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   });
   
   return next(cloneRequest).pipe(
-    catchError((err: any) => {
-      if (err instanceof HttpErrorResponse) {
-        if (err.status === 401) {
-          console.log("Your token has expired");
-          router.navigate(['login']);
+    catchError((error: any) => {
+      if(error instanceof HttpErrorResponse){
+        if(error.status === 401) {
+          console.log("Token is expired, please login again");
+          authService.logOut();
         }
       }
-      return throwError(() => new Error("some other error occured"));
+      return throwError(() => new Error("Some other error occured"));
     })
   )
 };
