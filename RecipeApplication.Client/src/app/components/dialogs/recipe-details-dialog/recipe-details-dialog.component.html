@@ -7,23 +7,28 @@
       <span class="mat-headline-2">{{ data.recipeName }}</span>
       <div class="features">
         <div class="feature-item" *ngIf="data.difficultyLevel">
-          <span class="feature-data-desc mat-headline-6"><mat-icon>signal_cellular_alt</mat-icon>Difficulty: </span>
+          <mat-icon class="feature-icon">signal_cellular_alt</mat-icon>
+          <span class="feature-title mat-headline-6">Difficulty: </span>
           <span class="feature-data">{{data.difficultyLevel}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.mealType">
-          <span class="feature-data-desc mat-headline-6"><mat-icon>restaurant</mat-icon> Meal: </span>
+        <div class="feature-item" *ngIf="data.difficultyLevel">
+          <mat-icon class="feature-icon">restaurant</mat-icon>
+          <span class="feature-title mat-headline-6"> Meal: </span>
           <span class="feature-data">{{data.mealType}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.cuisineType">
-          <span class="feature-data-desc mat-headline-6"><mat-icon>flag</mat-icon> Cuisine: </span>
+        <div class="feature-item" *ngIf="data.difficultyLevel">
+          <mat-icon class="feature-icon">flag</mat-icon>
+          <span class="feature-title mat-headline-6"> Cuisine: </span>
           <span class="feature-data">{{data.cuisineType}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.dietaryInformation">
-          <span class="feature-data-desc mat-headline-6"><mat-icon>egg</mat-icon> Diet: </span>
+        <div class="feature-item" *ngIf="data.difficultyLevel">
+          <mat-icon class="feature-icon">egg</mat-icon>
+          <span class="feature-title mat-headline-6"> Diet: </span>
           <span class="feature-data">{{data.dietaryInformation}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.cookingTime">
-          <span class="feature-data-desc mat-headline-6"><mat-icon>timer</mat-icon> Time: </span>
+        <div class="feature-item" *ngIf="data.difficultyLevel">
+          <mat-icon class="feature-icon">timer</mat-icon>
+          <span class="feature-title mat-headline-6"> Time: </span>
           <span class="feature-data">{{data.cookingTime}}</span>
         </div>
       </div>

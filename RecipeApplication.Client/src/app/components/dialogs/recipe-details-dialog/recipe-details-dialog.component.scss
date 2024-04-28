@@ -48,6 +48,8 @@
 
 .mat-headline-6 {
   font-weight: 500;
+  margin: 0px;
+  padding: 0px;
 }
 
 .mat-headline-5 {
@@ -60,6 +62,8 @@ img {
   object-fit: cover;
 }
 
+
+
 // NAME BOX
 
 .features {
@@ -69,10 +73,16 @@ img {
 }
 
 .feature-item {
+  display: flex;
   margin-bottom: 35px;
+  align-items: center;
 }
 
-.feature-data-desc {
+.feature-icon {
+  margin-right: 3px;
+}
+
+.feature-title {
   margin-right: 3px;
 }
 
@@ -80,10 +90,6 @@ img {
   padding: 5px;
   border: 3px solid orange;
   border-radius: 15px;
-}
-
-mat-icon {
-  margin-right: 3px;
 }
 
 
