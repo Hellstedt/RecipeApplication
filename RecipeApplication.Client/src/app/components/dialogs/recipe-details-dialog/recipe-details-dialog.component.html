@@ -11,22 +11,22 @@
           <span class="feature-title mat-headline-6">Difficulty: </span>
           <span class="feature-data">{{data.difficultyLevel}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.difficultyLevel">
+        <div class="feature-item" *ngIf="data.mealType">
           <mat-icon class="feature-icon">restaurant</mat-icon>
           <span class="feature-title mat-headline-6"> Meal: </span>
           <span class="feature-data">{{data.mealType}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.difficultyLevel">
+        <div class="feature-item" *ngIf="data.cuisineType">
           <mat-icon class="feature-icon">flag</mat-icon>
           <span class="feature-title mat-headline-6"> Cuisine: </span>
           <span class="feature-data">{{data.cuisineType}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.difficultyLevel">
+        <div class="feature-item" *ngIf="data.dietaryInformation">
           <mat-icon class="feature-icon">egg</mat-icon>
           <span class="feature-title mat-headline-6"> Diet: </span>
           <span class="feature-data">{{data.dietaryInformation}}</span>
         </div>
-        <div class="feature-item" *ngIf="data.difficultyLevel">
+        <div class="feature-item" *ngIf="data.cookingTime">
           <mat-icon class="feature-icon">timer</mat-icon>
           <span class="feature-title mat-headline-6"> Time: </span>
           <span class="feature-data">{{data.cookingTime}}</span>
