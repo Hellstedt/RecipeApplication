@@ -11,3 +11,33 @@
 button {
     margin: 2px;
 }
+
+.sub-heading {
+    display: block;
+    margin: 20px 0px 10px 0px
+}
+
+.add-inst-button {
+    margin-bottom: 10px;
+}
+
+.delete-button {
+    margin-bottom: 10px;
+}
+
+.form-action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    width: 98%;
+    margin: 1%;
+}
+
+// Creates a linebreak so that save and cancel buttons are on their own separate lines.
+.break {
+    flex-basis: 100;
+    height: 0;
+}
+
+.dialog-action-btn {
+    width: 100%;
+}

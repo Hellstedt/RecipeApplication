@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RecipeService } from '../../../services/recipe.service';
 import { ICreateRecipe } from '../../../interfaces/ICreateRecipe';
@@ -23,49 +23,50 @@ export class AddRecipeDialogComponent {
     imageUrl: this.fb.control(''),
     raiting: this.fb.control(''),
     favorite: this.fb.control(false),
+    instructions: this.fb.array([])
   });
 
-difficulties: any[] = [
-  { value: 'Easy', viewValue: 'Easy' },
-  { value: 'Medium', viewValue: 'Medium' },
-  { value: 'Hard', viewValue: 'Hard' },
-];
+  difficulties: any[] = [
+    { value: 'Easy', viewValue: 'Easy' },
+    { value: 'Medium', viewValue: 'Medium' },
+    { value: 'Hard', viewValue: 'Hard' },
+  ];
 
-mealTypes: any[] = [
-  { value: 'Breakfast', viewValue: 'Breakfast' },
-  { value: 'Lunch', viewValue: 'Lunch' },
-  { value: 'Dinner', viewValue: 'Dinner' },
-  { value: 'Snack', viewValue: 'Snack' },
-  { value: 'Dessert', viewValue: 'Dessert' },
-  { value: 'Appetizer', viewValue: 'Appetizer' },
-  { value: 'Beverage', viewValue: 'Beverage' },
-];
+  mealTypes: any[] = [
+    { value: 'Breakfast', viewValue: 'Breakfast' },
+    { value: 'Lunch', viewValue: 'Lunch' },
+    { value: 'Dinner', viewValue: 'Dinner' },
+    { value: 'Snack', viewValue: 'Snack' },
+    { value: 'Dessert', viewValue: 'Dessert' },
+    { value: 'Appetizer', viewValue: 'Appetizer' },
+    { value: 'Beverage', viewValue: 'Beverage' },
+  ];
 
-cuisineTypes: any[] = [
-  { value: 'Italian', viewValue: 'Italian' },
-  { value: 'Mexican', viewValue: 'Mexican' },
-  { value: 'Indian', viewValue: 'Indian' },
-  { value: 'Chinese', viewValue: 'Chinese' },
-  { value: 'Japanese', viewValue: 'Japanese' },
-  { value: 'Thai', viewValue: 'Thai' },
-  { value: 'Mediterranean', viewValue: 'Mediterranean' },
-  { value: 'American', viewValue: 'American' },
-  { value: 'French', viewValue: 'French' },
-  { value: 'Spanish', viewValue: 'Spanish' },
-];
+  cuisineTypes: any[] = [
+    { value: 'Italian', viewValue: 'Italian' },
+    { value: 'Mexican', viewValue: 'Mexican' },
+    { value: 'Indian', viewValue: 'Indian' },
+    { value: 'Chinese', viewValue: 'Chinese' },
+    { value: 'Japanese', viewValue: 'Japanese' },
+    { value: 'Thai', viewValue: 'Thai' },
+    { value: 'Mediterranean', viewValue: 'Mediterranean' },
+    { value: 'American', viewValue: 'American' },
+    { value: 'French', viewValue: 'French' },
+    { value: 'Spanish', viewValue: 'Spanish' },
+  ];
 
-dietTypes: any[] = [
-  { value: 'Vegetarian', viewValue: 'Vegetarian' },
-  { value: 'Vegan', viewValue: 'Vegan' },
-  { value: 'Keto', viewValue: 'Keto' },
-  { value: 'Paleo', viewValue: 'Paleo' },
-  { value: 'Gluten-free', viewValue: 'Gluten-free' },
-  { value: 'Low-carb', viewValue: 'Low-carb' },
-  { value: 'Mediterranean', viewValue: 'Mediterranean' },
-  { value: 'Pescatarian', viewValue: 'Pescatarian' },
-  { value: 'Whole30', viewValue: 'Whole30' },
-  { value: 'Flexitarian', viewValue: 'Flexitarian' },
-];
+  dietTypes: any[] = [
+    { value: 'Vegetarian', viewValue: 'Vegetarian' },
+    { value: 'Vegan', viewValue: 'Vegan' },
+    { value: 'Keto', viewValue: 'Keto' },
+    { value: 'Paleo', viewValue: 'Paleo' },
+    { value: 'Gluten-free', viewValue: 'Gluten-free' },
+    { value: 'Low-carb', viewValue: 'Low-carb' },
+    { value: 'Mediterranean', viewValue: 'Mediterranean' },
+    { value: 'Pescatarian', viewValue: 'Pescatarian' },
+    { value: 'Whole30', viewValue: 'Whole30' },
+    { value: 'Flexitarian', viewValue: 'Flexitarian' },
+  ];
 
 
   constructor(
@@ -79,6 +80,23 @@ dietTypes: any[] = [
       this.closeDialog();
     });
     console.log(this.addRecipeForm.value);
+  }
+
+  get instructionsForms() {
+    return this.addRecipeForm.get('instructions') as FormArray
+  }
+
+  addInstruction() {
+    const instruction = this.fb.group({
+      stepNumber: [],
+      stepText: [],
+    })
+
+    this.instructionsForms.push(instruction);
+  }
+
+  deleteInstruction(i: number) {
+    this.instructionsForms.removeAt(i);
   }
 
   closeDialog(): void {

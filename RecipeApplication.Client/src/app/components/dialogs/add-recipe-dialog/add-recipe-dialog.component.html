@@ -62,12 +62,32 @@
             <input matInput type="text" formControlName="imageUrl">
         </mat-form-field>
 
+        <span class="sub-heading mat-headline-5">Instructions</span>
+
+        <div formArrayName="instructions">
+            <div *ngFor="let instruction of instructionsForms.controls; let i=index" [formGroupName]="i">
+
+                <mat-label>Step {{i + 1}}</mat-label>
+                <mat-form-field appearance="outline">
+                    <textarea matInput type="text" formControlName="stepText"></textarea>
+                </mat-form-field>
+
+                <button mat-flat-button class="delete-button" color="warn" (click)="deleteInstruction(i)">Delete</button>
+                
+            </div>
+        </div>
+
+        <button mat-flat-button class="add-inst-button" color="primary" (click)="addInstruction()">Add</button>
+
         <div>
             <mat-checkbox formControlName="favorite">Favorite</mat-checkbox>
         </div>
     </div>
     <div mat-dialog-actions>
-        <button mat-flat-button color="primary">Save</button>
-        <button mat-flat-button (click)="closeDialog()" color="warn">Cancel</button>
+        <div class="form-action-btns">
+            <button mat-flat-button class="dialog-action-btn" (click)="onSubmit()" color="primary">Save</button>
+            <div class="break"></div>
+            <button mat-flat-button class="dialog-action-btn" (click)="closeDialog()" color="warn">Cancel</button>
+        </div>
     </div>
 </form>
