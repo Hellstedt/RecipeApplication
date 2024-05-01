@@ -23,6 +23,7 @@ export class AddRecipeDialogComponent {
     imageUrl: this.fb.control(''),
     raiting: this.fb.control(''),
     favorite: this.fb.control(false),
+    ingredients: this.fb.array([]),
     instructions: this.fb.array([])
   });
 
@@ -68,6 +69,9 @@ export class AddRecipeDialogComponent {
     { value: 'Flexitarian', viewValue: 'Flexitarian' },
   ];
 
+  showNewIngredientField: boolean[] = [];
+  existingIngredients: string[] = [];
+
 
   constructor(
     private dialogRef: MatDialogRef<AddRecipeDialogComponent>,
@@ -82,8 +86,33 @@ export class AddRecipeDialogComponent {
     console.log(this.addRecipeForm.value);
   }
 
+  toggleNewIngredientField(index: number): void {
+    this.showNewIngredientField[index] = !this.showNewIngredientField[index];
+        
+    // Reset the dropdown selection if switching to new ingredient input
+    console.log(this.addRecipeForm.get(`ingredients.${index}.ingredientName`));
+    this.addRecipeForm.get(`ingredients.${index}`)?.reset();
+    console.log(this.addRecipeForm.get(`ingredients.${index}.ingredientName`));
+}
+
+  get ingredientsForms() {
+    return this.addRecipeForm.get('ingredients') as FormArray
+  }
+
   get instructionsForms() {
     return this.addRecipeForm.get('instructions') as FormArray
+  }
+
+  addIngredient() {
+    const ingredient = this.fb.group({
+      ingredientName: []
+    })
+
+    this.ingredientsForms.push(ingredient);
+  }
+
+  deleteIngredient(i: number) {
+    this.ingredientsForms.removeAt(i);
   }
 
   addInstruction() {
