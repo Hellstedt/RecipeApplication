@@ -21,6 +21,6 @@ export class RecipeService {
   }
 
   CreateRecipe(recipe:any) {
-    return this.http.post<any>(`${this.baseUrl}CreateRecipe`, recipe);
+    return this.http.post<ICreateRecipe>(`${this.baseUrl}CreateRecipe`, recipe);
   }
 }

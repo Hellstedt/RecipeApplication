@@ -76,13 +76,14 @@ export class AddRecipeDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<AddRecipeDialogComponent>,
     private fb: FormBuilder,
-    private recipeSerice: RecipeService,
+    private recipeService: RecipeService,
   ){}
 
   onSubmit() {
-    // this.recipeSerice.CreateRecipe(this.addRecipeForm.value).subscribe(res => {
-    //   this.closeDialog();
-    // });
+    this.recipeService.CreateRecipe(this.addRecipeForm.value).subscribe(res => {
+      this.closeDialog();
+    });
+
     console.log(this.addRecipeForm.value);
   }
 

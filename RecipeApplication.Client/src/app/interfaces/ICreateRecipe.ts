@@ -1,7 +1,10 @@
+import { IInstruction } from "./IInstruction";
+
 export interface ICreateRecipe {
     recipeName: string;
     cookingTime: number;
     servings: number;
+    instrcuctions: IInstruction[];
     difficultyLevel: string;
     mealType: string;
     cuisineType: string;
