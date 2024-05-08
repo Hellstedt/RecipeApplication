@@ -63,6 +63,14 @@ namespace RecipeApplication.WebAPI.Mappers
                 RecipeName = recipeDto.RecipeName,
                 DateCreated = DateTime.Now,
                 CookingTime = null,
+                Instructions = recipeDto.Instructions
+                    .Select(i => new Instruction
+                    {
+                        RecipeId = i.RecipeId,
+                        StepNumber = i.StepNumber,
+                        InstructionText = i.InstructionText,
+
+                    }).ToList(),
                 Servings = recipeDto.Servings,
                 DifficultyLevel = recipeDto.DifficultyLevel,
                 MealType = recipeDto.MealType,

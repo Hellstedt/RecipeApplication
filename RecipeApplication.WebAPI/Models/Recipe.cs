@@ -12,7 +12,7 @@ namespace RecipeApplication.WebAPI.Models
         public DateTime DateCreated { get; set; } = DateTime.Now;
         public TimeSpan? CookingTime { get; set; }
         public ICollection<Instruction>? Instructions { get; set; }
-        public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+        public ICollection<RecipeIngredient>? RecipeIngredients { get; set; }
         public int Servings { get; set; }
         public string? DifficultyLevel { get; set; }
         public string? MealType { get; set; }

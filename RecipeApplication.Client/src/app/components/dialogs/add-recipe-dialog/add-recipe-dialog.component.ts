@@ -80,9 +80,9 @@ export class AddRecipeDialogComponent {
   ){}
 
   onSubmit() {
-    this.recipeSerice.CreateRecipe(this.addRecipeForm.value).subscribe(res => {
-      this.closeDialog();
-    });
+    // this.recipeSerice.CreateRecipe(this.addRecipeForm.value).subscribe(res => {
+    //   this.closeDialog();
+    // });
     console.log(this.addRecipeForm.value);
   }
 
@@ -106,8 +106,8 @@ export class AddRecipeDialogComponent {
   addIngredient() {
     const ingredient = this.fb.group({
       ingredientName: []
-    })
-
+    });
+ 
     this.ingredientsForms.push(ingredient);
   }
 
@@ -118,8 +118,8 @@ export class AddRecipeDialogComponent {
   addInstruction() {
     const instruction = this.fb.group({
       stepNumber: [],
-      stepText: [],
-    })
+      instructionText: [],
+    });
 
     this.instructionsForms.push(instruction);
   }

@@ -95,9 +95,11 @@
         <div formArrayName="instructions">
             <div *ngFor="let instruction of instructionsForms.controls; let i=index" [formGroupName]="i">
 
+                <input matInput hidden formControlName="stepNumber" [ngModel]="i + 1">
+
                 <mat-label>Step {{i + 1}}</mat-label>
                 <mat-form-field appearance="outline">
-                    <textarea matInput type="text" formControlName="stepText"></textarea>
+                    <textarea matInput type="text" formControlName="instructionText"></textarea>
                 </mat-form-field>
 
                 <button mat-flat-button type="button" class="delete-button" color="warn" (click)="deleteInstruction(i)">Delete</button>
