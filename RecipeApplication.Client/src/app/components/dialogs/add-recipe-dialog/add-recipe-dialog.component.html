@@ -102,8 +102,9 @@
                     <textarea matInput type="text" formControlName="instructionText"></textarea>
                 </mat-form-field>
 
-                <button mat-flat-button type="button" class="delete-button" color="warn" (click)="deleteInstruction(i)">Delete</button>
-                
+                <div class="delete-btn-container">
+                    <button mat-flat-button type="button" class="delete-instruction-button" color="warn" (click)="deleteInstruction(i)">Delete</button>
+                </div>
             </div>
         </div>
 
