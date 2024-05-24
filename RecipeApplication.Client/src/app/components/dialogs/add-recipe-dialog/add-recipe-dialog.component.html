@@ -71,13 +71,35 @@
                 <mat-form-field appearance="outline">
                 <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredientName">
                     <mat-option *ngFor="let existingIngredients of existingIngredients" [value]="existingIngredients">
-                        {{existingIngredients}}
+                        {{existingIngredients.ingredientName}}
                     </mat-option>
                 </mat-select>
 
                 <input matInput type="text" formControlName="ingredientName" *ngIf="showNewIngredientField[i]">
 
                 </mat-form-field>
+
+                <div class="unit-fields">
+                    <div class="unit-field-group">
+                        <mat-label>unit</mat-label>
+                        <mat-form-field class="unit" appearance="outline">
+                        <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredientName">
+                            <mat-option *ngFor="let existingIngredients of existingIngredients" [value]="existingIngredients">
+                                {{existingIngredients.ingredientName}}
+                            </mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="unit-field-group">
+                        <mat-label>quantity</mat-label>
+                        <mat-form-field class="unit" appearance="outline">
+                            <input matInput type="number">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
 
                 <button mat-flat-button type="button" class="create-new-ingredient" color="primary" (click)="toggleNewIngredientField(i)">
                     {{showNewIngredientField[i] ? 'Cancel' : 'New ingredient'}}

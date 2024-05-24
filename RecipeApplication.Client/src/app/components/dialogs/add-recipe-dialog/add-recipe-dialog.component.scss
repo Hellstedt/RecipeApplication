@@ -8,6 +8,17 @@
     margin: 1%;
 }
 
+.unit-fields {
+    width: 100%;
+    display: flex;
+}
+
+.unit-field-group {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
 button {
     margin: 2px;
 }

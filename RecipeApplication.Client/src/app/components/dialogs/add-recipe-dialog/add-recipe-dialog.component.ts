@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RecipeService } from '../../../services/recipe.service';
 import { ICreateRecipe } from '../../../interfaces/ICreateRecipe';
+import { IngredientService } from '../../../services/ingredient.service';
+import { ISelectIngredient } from '../../../interfaces/ISelectIngredient';
 
 @Component({
   selector: 'app-add-recipe-dialog',
@@ -70,14 +72,23 @@ export class AddRecipeDialogComponent {
   ];
 
   showNewIngredientField: boolean[] = [];
-  existingIngredients: string[] = [];
+  existingIngredients: ISelectIngredient[] = [];
 
 
   constructor(
     private dialogRef: MatDialogRef<AddRecipeDialogComponent>,
     private fb: FormBuilder,
     private recipeService: RecipeService,
+    private ingredientService: IngredientService,
   ){}
+
+  ngOnInit() {
+    this.ingredientService.getAllIngredients()
+    .subscribe((res) => {
+      console.log(res);
+      this.existingIngredients = res;
+    });
+  }
 
   onSubmit() {
     this.recipeService.CreateRecipe(this.addRecipeForm.value).subscribe(res => {

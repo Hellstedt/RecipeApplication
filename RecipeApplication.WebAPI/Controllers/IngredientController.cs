@@ -18,7 +18,7 @@ namespace RecipeApplication.WebAPI.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetAllIngredient()
+        public async Task<IActionResult> GetAllIngredients()
         {
             var ingredients = await _ingredientRepo.GetAllAsync();
 
