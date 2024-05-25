@@ -64,12 +64,12 @@
 
         <span class="sub-heading mat-headline-5">Ingredients</span>
 
-        <div formArrayName="ingredients">
-            <div *ngFor="let ingredient of ingredientsForms.controls; let i=index" [formGroupName]="i">
+        <div formArrayName="recipeIngredients">
+            <div *ngFor="let ingredient of recipeIngredientsForms.controls; let i=index" [formGroupName]="i">
 
                 <mat-label>ingredient {{i + 1}}</mat-label>
                 <mat-form-field appearance="outline">
-                <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredientName">
+                <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredient">
                     <mat-option *ngFor="let existingIngredients of existingIngredients" [value]="existingIngredients">
                         {{existingIngredients.ingredientName}}
                     </mat-option>
@@ -83,9 +83,9 @@
                     <div class="unit-field-group">
                         <mat-label>unit</mat-label>
                         <mat-form-field class="unit" appearance="outline">
-                        <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredientName">
-                            <mat-option *ngFor="let existingIngredients of existingIngredients" [value]="existingIngredients">
-                                {{existingIngredients.ingredientName}}
+                        <mat-select formControlName="unit">
+                            <mat-option *ngFor="let unit of units" [value]="unit">
+                                {{unit.unitName}}
                             </mat-option>
                         </mat-select>
                         </mat-form-field>
@@ -94,7 +94,7 @@
                     <div class="unit-field-group">
                         <mat-label>quantity</mat-label>
                         <mat-form-field class="unit" appearance="outline">
-                            <input matInput type="number">
+                            <input matInput type="number" formControlName="quantity">
                         </mat-form-field>
                     </div>
                 </div>

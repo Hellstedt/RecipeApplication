@@ -101,6 +101,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+builder.Services.AddScoped<IUnitRepository, UnitRepository>();
 
 var app = builder.Build();
 

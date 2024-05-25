@@ -33,8 +33,6 @@ namespace RecipeApplication.WebAPI.Mappers
                 RecipeIngredients = recipeModel.RecipeIngredients
                     .Select(ri => new RecipeIngredientDto
                     {
-                        Id = ri.Id,
-                        IngredientId = ri.IngredientId,
                         Ingredient = new IngredientDto
                             {
                                 Id = ri.Ingredient.Id,
@@ -47,7 +45,6 @@ namespace RecipeApplication.WebAPI.Mappers
                             UnitName = ri.Unit.UnitName,
                             UnitAbbreviation = ri.Unit.UnitAbbreviation,
                         },
-                        UnitId = ri.UnitId,
                         Quantity = ri.Quantity,
                     }).ToList(),
                 Source = recipeModel.Source,
@@ -71,6 +68,15 @@ namespace RecipeApplication.WebAPI.Mappers
                         InstructionText = i.InstructionText,
 
                     }).ToList(),
+                RecipeIngredients = recipeDto.RecipeIngredients
+                .Select(i => new RecipeIngredient
+                {
+                    RecipeId = i.RecipeId,
+                    IngredientId = i.Ingredient.Id,
+                    UnitId = i.Unit.Id,
+                    Quantity = i.Quantity,
+
+                }).ToList(),
                 Servings = recipeDto.Servings,
                 DifficultyLevel = recipeDto.DifficultyLevel,
                 MealType = recipeDto.MealType,

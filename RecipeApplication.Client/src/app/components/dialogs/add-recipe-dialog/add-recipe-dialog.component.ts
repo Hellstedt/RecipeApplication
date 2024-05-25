@@ -5,6 +5,8 @@ import { RecipeService } from '../../../services/recipe.service';
 import { ICreateRecipe } from '../../../interfaces/ICreateRecipe';
 import { IngredientService } from '../../../services/ingredient.service';
 import { ISelectIngredient } from '../../../interfaces/ISelectIngredient';
+import { UnitService } from '../../../services/unit.service';
+import { IUnit } from '../../../interfaces/IUnit';
 
 @Component({
   selector: 'app-add-recipe-dialog',
@@ -25,7 +27,7 @@ export class AddRecipeDialogComponent {
     imageUrl: this.fb.control(''),
     raiting: this.fb.control(''),
     favorite: this.fb.control(false),
-    ingredients: this.fb.array([]),
+    recipeIngredients: this.fb.array([]),
     instructions: this.fb.array([])
   });
 
@@ -73,6 +75,7 @@ export class AddRecipeDialogComponent {
 
   showNewIngredientField: boolean[] = [];
   existingIngredients: ISelectIngredient[] = [];
+  units: IUnit[] = [];
 
 
   constructor(
@@ -80,13 +83,18 @@ export class AddRecipeDialogComponent {
     private fb: FormBuilder,
     private recipeService: RecipeService,
     private ingredientService: IngredientService,
+    private unitService: UnitService,
   ){}
 
   ngOnInit() {
     this.ingredientService.getAllIngredients()
     .subscribe((res) => {
-      console.log(res);
       this.existingIngredients = res;
+    });
+
+    this.unitService.getAllUnits()
+    .subscribe((res) => {
+      this.units = res;
     });
   }
 
@@ -107,8 +115,8 @@ export class AddRecipeDialogComponent {
     console.log(this.addRecipeForm.get(`ingredients.${index}.ingredientName`));
 }
 
-  get ingredientsForms() {
-    return this.addRecipeForm.get('ingredients') as FormArray
+  get recipeIngredientsForms() {
+    return this.addRecipeForm.get('recipeIngredients') as FormArray
   }
 
   get instructionsForms() {
@@ -116,15 +124,18 @@ export class AddRecipeDialogComponent {
   }
 
   addIngredient() {
-    const ingredient = this.fb.group({
-      ingredientName: []
+    const recipeIngredient = this.fb.group({
+      ingredient: [Validators.required],
+      unit: [Validators.required],
+      quantity: [0,Validators.required]
     });
  
-    this.ingredientsForms.push(ingredient);
+    console.log(recipeIngredient);
+    this.recipeIngredientsForms.push(recipeIngredient);
   }
 
   deleteIngredient(i: number) {
-    this.ingredientsForms.removeAt(i);
+    this.recipeIngredientsForms.removeAt(i);
   }
 
   addInstruction() {

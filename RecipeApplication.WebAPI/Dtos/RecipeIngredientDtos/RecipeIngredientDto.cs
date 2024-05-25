@@ -6,7 +6,7 @@ namespace RecipeApplication.WebAPI.Dtos.RecipeIngredientDtos
 {
     public class RecipeIngredientDto
     {
-        public int Id { get; set; }
+        public int RecipeId { get; set; }
         public int IngredientId { get; set; }
         public IngredientDto Ingredient { get; set; }
         public int UnitId { get; set; }
