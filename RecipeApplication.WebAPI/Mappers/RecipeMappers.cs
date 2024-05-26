@@ -15,6 +15,7 @@ namespace RecipeApplication.WebAPI.Mappers
         {
             return new RecipeDto
             {
+                Id = recipeModel.Id,
                 RecipeName = recipeModel.RecipeName,
                 Servings = recipeModel.Servings,
                 DifficultyLevel = recipeModel.DifficultyLevel,

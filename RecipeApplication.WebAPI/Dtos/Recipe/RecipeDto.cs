@@ -6,6 +6,7 @@ namespace RecipeApplication.WebAPI.Dtos.Recipe
 {
     public class RecipeDto
     {
+        public int Id { get; set; }
         public string RecipeName { get; set; }
         public int Servings { get; set; }
         public string? DifficultyLevel { get; set; }

@@ -45,6 +45,10 @@ export class CookbookComponent implements OnInit {
       height: '90%',
       data: recipe
     });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.updateRecipeList();
+    })
   }
 
   updateRecipeList() {
