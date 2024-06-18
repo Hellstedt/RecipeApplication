@@ -30,6 +30,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import { RecipeDetailsDialogComponent } from './components/dialogs/recipe-details-dialog/recipe-details-dialog.component';
 import { ConfirmationDialogComponent } from './components/dialogs/confirmation-dialog/confirmation-dialog.component';
+import { EditRecipeDialogComponent } from './components/dialogs/edit-recipe-dialog/edit-recipe-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ConfirmationDialogComponent } from './components/dialogs/confirmation-d
     AddRecipeDialogComponent,
     RecipeDetailsDialogComponent,
     ConfirmationDialogComponent,
+    EditRecipeDialogComponent,
   ],
   imports: [
     BrowserModule,

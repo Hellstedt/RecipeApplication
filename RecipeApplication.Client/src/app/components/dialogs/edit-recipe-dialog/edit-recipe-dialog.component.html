@@ -1,0 +1,146 @@
+<form [formGroup]="editRecipeForm" (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>Add Recipe</h1>
+    <div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="recipeName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cooking Time</mat-label>
+            <input matInput type="time" formControlName="cookingTime">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Servings</mat-label>
+            <input matInput type="number" formControlName="servings">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Difficulty</mat-label>
+            <mat-select formControlName="difficultyLevel">
+                @for (difficulty of difficulties; track difficulty) {
+                    <mat-option [value]="difficulty.value">{{difficulty.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Meal Type</mat-label>
+            <mat-select formControlName="mealType">
+                @for (mealType of mealTypes; track mealType) {
+                    <mat-option [value]="mealType.value">{{mealType.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cuisine Type</mat-label>
+            <mat-select formControlName="cuisineType">
+                @for (cuisine of cuisineTypes; track cuisine) {
+                    <mat-option [value]="cuisine.value">{{cuisine.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Diet</mat-label>
+            <mat-select formControlName="dietaryInformation">
+                @for (diet of dietTypes; track diet) {
+                    <mat-option [value]="diet.value">{{diet.viewValue}}</mat-option>
+                  }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Source</mat-label>
+            <input matInput type="text" formControlName="source">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input matInput type="text" formControlName="imageUrl">
+        </mat-form-field>
+
+        <span class="sub-heading mat-headline-5">Ingredients</span>
+
+        <div formArrayName="recipeIngredients">
+            <div *ngFor="let ingredient of recipeIngredientsForms.controls; let i=index" [formGroupName]="i">
+
+                <mat-label>ingredient {{i + 1}}</mat-label>
+                <mat-form-field appearance="outline">
+                <mat-select *ngIf="!showNewIngredientField[i]" formControlName="ingredient">
+                    <mat-option *ngFor="let existingIngredients of existingIngredients" [value]="existingIngredients">
+                        {{existingIngredients.ingredientName}}
+                    </mat-option>
+                </mat-select>
+
+                <input matInput type="text" formControlName="ingredientName" *ngIf="showNewIngredientField[i]">
+
+                </mat-form-field>
+
+                <div class="unit-fields">
+                    <div class="unit-field-group">
+                        <mat-label>unit</mat-label>
+                        <mat-form-field class="unit" appearance="outline">
+                        <mat-select formControlName="unit">
+                            <mat-option *ngFor="let unit of units" [value]="unit">
+                                {{unit.unitName}}
+                            </mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="unit-field-group">
+                        <mat-label>quantity</mat-label>
+                        <mat-form-field class="unit" appearance="outline">
+                            <input matInput type="number" formControlName="quantity">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+
+                <button mat-flat-button type="button" class="create-new-ingredient" color="primary" (click)="toggleNewIngredientField(i)">
+                    {{showNewIngredientField[i] ? 'Cancel' : 'New ingredient'}}
+                </button>
+
+                <button mat-flat-button type="button" class="delete-button" color="warn" (click)="deleteIngredient(i)">Delete</button>
+                
+            </div>
+        </div>
+
+        <button mat-flat-button type="button" class="add-inst-button" color="primary" (click)="addIngredient()">Add</button>
+
+        <span class="sub-heading mat-headline-5">Instructions</span>
+
+        <div formArrayName="instructions">
+            <div *ngFor="let instruction of instructionsForms.controls; let i=index" [formGroupName]="i">
+
+                <input matInput hidden formControlName="stepNumber" [ngModel]="i + 1">
+
+                <mat-label>Step {{i + 1}}</mat-label>
+                <mat-form-field appearance="outline">
+                    <textarea matInput type="text" formControlName="instructionText"></textarea>
+                </mat-form-field>
+
+                <div class="delete-btn-container">
+                    <button mat-flat-button type="button" class="delete-instruction-button" color="warn" (click)="deleteInstruction(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <button mat-flat-button type="button" class="add-inst-button" color="primary" (click)="addInstruction()">Add</button>
+
+        <div>
+            <mat-checkbox formControlName="favorite">Favorite</mat-checkbox>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <div class="form-action-btns">
+            <button mat-flat-button class="dialog-action-btn" type="button" (click)="onSubmit()" color="primary">Save</button>
+            <div class="break"></div>
+            <button mat-flat-button type="button" class="dialog-action-btn" (click)="closeDialog()" color="warn">Cancel</button>
+        </div>
+    </div>
+</form>
