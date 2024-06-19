@@ -1,6 +1,6 @@
 export interface IInstruction {
     id: number;
-    RecipeId: number;
-    StepNumber: number;
-    InstructionText: string;
+    recipeId: number;
+    stepNumber: number;
+    instructionText: string;
 }

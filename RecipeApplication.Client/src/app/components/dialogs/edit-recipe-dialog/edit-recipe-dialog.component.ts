@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ISelectIngredient } from '../../../interfaces/ISelectIngredient';
 import { IUnit } from '../../../interfaces/IUnit';
 import { AddRecipeDialogComponent } from '../add-recipe-dialog/add-recipe-dialog.component';
@@ -7,6 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IngredientService } from '../../../services/ingredient.service';
 import { RecipeService } from '../../../services/recipe.service';
 import { UnitService } from '../../../services/unit.service';
+import { IInstruction } from '../../../interfaces/IInstruction';
 
 @Component({
   selector: 'app-edit-recipe-dialog',
@@ -98,6 +99,8 @@ export class EditRecipeDialogComponent {
       this.units = res;
     });
 
+    console.log(this.data);
+
     this.editRecipeForm.patchValue({
       recipeName: this.data.recipeName,
       cookingTime: this.data.cookingTime,
@@ -110,7 +113,23 @@ export class EditRecipeDialogComponent {
       imageUrl: this.data.imageUrl,
       raiting: this.data.rating,
       favorite: this.data.favorite,
-    })
+    });
+
+    this.editRecipeForm.setControl('instructions', this.setExistingInstructions(this.data.instructions))
+  }
+
+
+  setExistingInstructions(instructionsList: IInstruction[]): FormArray {
+    const instructionArray = new FormArray<FormGroup>([]);
+
+    instructionsList.forEach(i => {
+      instructionArray.push(this.fb.group({
+        stepNumber: i.stepNumber,
+        instructionText: i.instructionText
+      }));
+    });
+
+    return instructionArray;
   }
 
   onSubmit() {
