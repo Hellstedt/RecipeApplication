@@ -2,7 +2,7 @@ import { IIngredient } from "./IIngredient";
 import { IUnit } from "./IUnit";
 
 export interface IRecipeIngredient {
-    Ingredient: IIngredient;
-    Unit: IUnit;
+    ingredient: IIngredient;
+    unit: IUnit;
     quantity: number;
 }

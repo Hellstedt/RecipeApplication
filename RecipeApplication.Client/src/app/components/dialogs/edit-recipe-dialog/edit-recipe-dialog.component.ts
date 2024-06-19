@@ -8,6 +8,9 @@ import { IngredientService } from '../../../services/ingredient.service';
 import { RecipeService } from '../../../services/recipe.service';
 import { UnitService } from '../../../services/unit.service';
 import { IInstruction } from '../../../interfaces/IInstruction';
+import { IIngredient } from '../../../interfaces/IIngredient';
+import { IRecipeIngredient } from '../../../interfaces/IRecipeIngredient';
+import { IRecipeIngredients } from '../../../interfaces/IRecipeIngredients';
 
 @Component({
   selector: 'app-edit-recipe-dialog',
@@ -115,7 +118,8 @@ export class EditRecipeDialogComponent {
       favorite: this.data.favorite,
     });
 
-    this.editRecipeForm.setControl('instructions', this.setExistingInstructions(this.data.instructions))
+    this.editRecipeForm.setControl('recipeIngredients', this.setExistingIngredients(this.data.recipeIngredients));
+    this.editRecipeForm.setControl('instructions', this.setExistingInstructions(this.data.instructions));
   }
 
 
@@ -130,6 +134,21 @@ export class EditRecipeDialogComponent {
     });
 
     return instructionArray;
+  }
+
+  setExistingIngredients(ingredientsList: IRecipeIngredient[]): FormArray {
+    const ingredientArray = new FormArray<FormGroup>([]);
+
+    ingredientsList.forEach(i => {
+      console.log(i);
+      ingredientArray.push(this.fb.group({
+        ingredient: i.ingredient,
+        unit: i.unit,
+        quantity: i.quantity
+      }));
+    });
+
+    return ingredientArray;
   }
 
   onSubmit() {
